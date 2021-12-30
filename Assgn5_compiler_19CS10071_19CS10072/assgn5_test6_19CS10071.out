@@ -1,0 +1,51 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: main :
+1: t0 = 5.6
+2: x = t0
+3: t1 = 't'
+4: ch = t1
+5: t2 = 56
+6: y = t2
+7: t3 = 5
+8: t4 = inttofloat(t3)
+9: t5 = x + t4
+10: t6 = 45
+11: t7 = chartoint(ch)
+12: t8 = t7 - t6
+13: t9 = inttofloat(t8)
+14: t10 = t5 * t9
+15: t11 = t10 / x
+16: res1 = t11
+17: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+main    | function   |    | 4  |0   | ST1  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | float   | 5.6   | 8  |0   | null   |
+t0    | float   | 5.6   | 8  |8   | null   |
+ch    | char   | 't'   | 1  |16   | null   |
+t1    | char   | 't'   | 1  |17   | null   |
+y    | int   | 56   | 4  |18   | null   |
+t2    | int   | 56   | 4  |22   | null   |
+res1    | float   |    | 8  |26   | null   |
+t3    | int   | 5   | 4  |34   | null   |
+t4    | float   |    | 8  |38   | null   |
+t5    | float   |    | 8  |46   | null   |
+t6    | int   | 45   | 4  |54   | null   |
+t7    | int   |    | 4  |58   | null   |
+t8    | int   |    | 4  |62   | null   |
+t9    | float   |    | 8  |66   | null   |
+t10    | float   |    | 8  |74   | null   |
+t11    | float   |    | 8  |82   | null   |

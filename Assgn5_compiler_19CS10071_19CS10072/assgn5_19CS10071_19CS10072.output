@@ -1,0 +1,2035 @@
+Nonterminals useless in grammar
+
+   storage_class_specifier
+   type_specifier
+   specifier_qualifier_list
+   specifier_qualifier_list_opt
+   enum_specifier
+   identifier_opt
+   enumerator_list
+   enumerator
+   function_specifier
+   type_name
+   initializer
+   initializer_list
+   designation_opt
+   designation
+   designator_list
+   designator
+
+
+Terminals unused in grammar
+
+   KEYWORD_
+   AUTO_
+   CHAR_
+   DOUBLE_
+   ENUM_
+   EXTERN_
+   FLOAT_
+   INLINE_
+   INT_
+   LONG_
+   REGISTER_
+   SHORT_
+   SIGNED_
+   SIZEOF_
+   STRUCT_
+   TYPEDEF_
+   UNION_
+   UNSIGNED_
+   VOID_
+   BOOL_
+   COMPLEX_
+   IMAGINARY_
+   DOT_
+   ARROW_
+   INCR_
+   DECR_
+   AND_
+   PLUS_
+   MINUS_
+   TILDA_
+   NOT_
+   SLASH_
+   PERCENT_
+   LSHIFT_
+   RSHIFT_
+   LESS_
+   GRTH_
+   LESSE_
+   GRTHE_
+   EQUALS_
+   NOTEQ_
+   XOR_
+   OR_
+   ANDAND_
+   OROR_
+   QUES_
+   ASSGN_
+   ASSGNMUL_
+   ASSGNDIV_
+   ASSGNPERCENT_
+   ASSGNPLUS_
+   ASSGNMINUS_
+   ASSGNLSHIFT_
+   ASSGNRSHIFT_
+   ASSGNAND_
+   ASSGNOR_
+   ASSGNXOR_
+   HASH_
+   PUNCTUATOR_
+   FLOAT_CONSTANT_
+   CHARACTER_CONSTANT_
+   STRING_LITERAL_
+   ENUMERATION_CONSTANT_
+   INTEGER_CONSTANT_
+   FRACTIONAL_CONSTANT_
+   MULTI_COMMENT_START
+   MULTI_COMMENT_END
+   SINGLE_COMMENT_START
+   SINGLE_COMMENT_END
+   ELSE
+
+
+Rules useless in grammar
+
+   77 storage_class_specifier: EXTERN_
+   78                        | STATIC_
+   79                        | AUTO_
+   80                        | REGISTER_
+
+   81 type_specifier: VOID_
+   82               | CHAR_
+   83               | SHORT_
+   84               | INT_
+   85               | LONG_
+   86               | FLOAT_
+   87               | DOUBLE_
+   88               | SIGNED_
+   89               | UNSIGNED_
+   90               | BOOL_
+   91               | COMPLEX_
+   92               | IMAGINARY_
+   93               | enum_specifier
+
+   94 specifier_qualifier_list: type_specifier specifier_qualifier_list_opt
+   95                         | type_qualifier specifier_qualifier_list_opt
+
+   96 specifier_qualifier_list_opt: specifier_qualifier_list
+   97                             | %empty
+
+   98 enum_specifier: ENUM_ identifier_opt CURBRK_OPEN_ enumerator_list CURBRK_CLOSE_
+   99               | ENUM_ identifier_opt CURBRK_OPEN_ enumerator_list COMMA_ CURBRK_CLOSE_
+  100               | ENUM_ IDENTIFIER_
+
+  101 identifier_opt: IDENTIFIER_
+  102               | %empty
+
+  103 enumerator_list: enumerator
+  104                | enumerator_list COMMA_ enumerator
+
+  105 enumerator: ENUMERATION_CONSTANT_
+  106           | ENUMERATION_CONSTANT_ ASSGN_ constant_expression
+
+  107 function_specifier: INLINE_
+
+  108 type_name: specifier_qualifier_list
+
+  109 initializer: assignment_expression
+  110            | CURBRK_OPEN_ initializer_list CURBRK_CLOSE_
+  111            | CURBRK_OPEN_ initializer_list COMMA_ CURBRK_CLOSE_
+
+  112 initializer_list: designation_opt initializer
+  113                 | initializer_list COMMA_ designation_opt initializer
+
+  114 designation_opt: designation
+  115                | %empty
+
+  116 designation: designator_list ASSGN_
+
+  117 designator_list: designator
+  118                | designator_list designator
+
+  119 designator: SQRBRK_OPEN_ constant_expression SQRBRK_CLOSE_
+  120           | DOT_ IDENTIFIER_
+
+
+Rules useless in parser due to conflicts
+
+    7 identifier_list_opt: %empty
+
+   27 assignment_expression_opt: %empty
+
+   48 block_item_list_opt: block_item_list
+   49                    | %empty
+
+   56 expression_opt: %empty
+
+   72 declaration_list_opt: declaration_list
+   73                     | %empty
+
+
+State 0 conflicts: 3 reduce/reduce
+State 3 conflicts: 1 shift/reduce, 3 reduce/reduce
+State 7 conflicts: 1 reduce/reduce
+State 20 conflicts: 1 reduce/reduce
+State 26 conflicts: 13 shift/reduce, 2 reduce/reduce
+State 31 conflicts: 1 shift/reduce, 1 reduce/reduce
+State 36 conflicts: 1 reduce/reduce
+State 40 conflicts: 1 reduce/reduce
+State 50 conflicts: 13 shift/reduce, 2 reduce/reduce
+State 59 conflicts: 1 reduce/reduce
+State 71 conflicts: 1 reduce/reduce
+State 73 conflicts: 1 reduce/reduce
+State 79 conflicts: 1 reduce/reduce
+State 93 conflicts: 1 reduce/reduce
+State 96 conflicts: 1 reduce/reduce
+State 114 conflicts: 1 reduce/reduce
+State 115 conflicts: 1 reduce/reduce
+State 116 conflicts: 1 reduce/reduce
+State 117 conflicts: 1 reduce/reduce
+State 121 conflicts: 1 reduce/reduce
+State 123 conflicts: 1 shift/reduce
+State 128 conflicts: 1 reduce/reduce
+State 129 conflicts: 1 reduce/reduce
+State 131 conflicts: 1 reduce/reduce
+State 135 conflicts: 1 reduce/reduce
+State 136 conflicts: 1 reduce/reduce
+
+
+Grammar
+
+    0 $accept: translation_unit $end
+
+    1 constant_expression: %empty
+
+    2 assignment_expression: %empty
+
+    3 declaration_specifiers: %empty
+
+    4 expression: %empty
+
+    5 declaration: %empty
+
+    6 identifier_list_opt: identifier_list
+    7                    | %empty
+
+    8 type_qualifier: CONST_
+    9               | RESTRICT_
+   10               | VOLATILE_
+
+   11 declarator: pointer_opt direct_declarator
+
+   12 pointer_opt: pointer
+   13            | %empty
+
+   14 direct_declarator: IDENTIFIER_
+   15                  | PAREN_OPEN_ declarator PAREN_CLOSE_
+   16                  | direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt assignment_expression_opt SQRBRK_CLOSE_
+   17                  | direct_declarator SQRBRK_OPEN_ STATIC_ type_qualifier_list_opt assignment_expression SQRBRK_CLOSE_
+   18                  | direct_declarator SQRBRK_OPEN_ type_qualifier_list STATIC_ assignment_expression SQRBRK_CLOSE_
+   19                  | direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt STAR_ SQRBRK_CLOSE_
+   20                  | direct_declarator PAREN_OPEN_ parameter_type_list PAREN_CLOSE_
+   21                  | direct_declarator PAREN_OPEN_ identifier_list_opt PAREN_CLOSE_
+
+   22 pointer: STAR_ type_qualifier_list_opt
+   23        | STAR_ type_qualifier_list_opt pointer
+
+   24 type_qualifier_list_opt: type_qualifier_list
+   25                        | %empty
+
+   26 assignment_expression_opt: assignment_expression
+   27                          | %empty
+
+   28 type_qualifier_list: type_qualifier
+   29                    | type_qualifier_list type_qualifier
+
+   30 parameter_type_list: parameter_list
+   31                    | parameter_list COMMA_ TRPDOTS_
+
+   32 parameter_list: parameter_declaration
+   33               | parameter_list COMMA_ parameter_declaration
+
+   34 parameter_declaration: declaration_specifiers declarator
+   35                      | declaration_specifiers
+
+   36 identifier_list: IDENTIFIER_
+   37                | identifier_list COMMA_ IDENTIFIER_
+
+   38 statement: labeled_statement
+   39          | compound_statement
+   40          | expression_statement
+   41          | selection_statement
+   42          | iteration_statement
+   43          | jump_statement
+
+   44 labeled_statement: IDENTIFIER_ COLON_ statement
+   45                  | CASE_ constant_expression COLON_ statement
+   46                  | DEFAULT_ COLON_ statement
+
+   47 compound_statement: CURBRK_OPEN_ block_item_list_opt CURBRK_CLOSE_
+
+   48 block_item_list_opt: block_item_list
+   49                    | %empty
+
+   50 block_item_list: block_item
+   51                | block_item_list block_item
+
+   52 block_item: declaration
+   53           | statement
+
+   54 expression_statement: expression_opt SEMICOLON_
+
+   55 expression_opt: expression
+   56               | %empty
+
+   57 selection_statement: IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement
+   58                    | IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement ELSE_ statement
+   59                    | SWITCH_ PAREN_OPEN_ expression PAREN_CLOSE_ statement
+
+   60 iteration_statement: WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ statement
+   61                    | DO_ statement WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ SEMICOLON_
+   62                    | FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+   63                    | FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+   64 jump_statement: GOTO_ IDENTIFIER_ SEMICOLON_
+   65               | CONTINUE_ SEMICOLON_
+   66               | BREAK_ SEMICOLON_
+   67               | RETURN_ expression_opt SEMICOLON_
+
+   68 translation_unit: external_declaration
+   69                 | translation_unit external_declaration
+
+   70 external_declaration: function_definition
+   71                     | declaration
+
+   72 declaration_list_opt: declaration_list
+   73                     | %empty
+
+   74 function_definition: declaration_specifiers declarator declaration_list_opt compound_statement
+
+   75 declaration_list: declaration
+   76                 | declaration_list declaration
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+KEYWORD_ (258)
+AUTO_ (259)
+BREAK_ (260) 66
+CASE_ (261) 45
+CHAR_ (262)
+CONST_ (263) 8
+CONTINUE_ (264) 65
+DEFAULT_ (265) 46
+DO_ (266) 61
+DOUBLE_ (267)
+ELSE_ (268) 58
+ENUM_ (269)
+EXTERN_ (270)
+FLOAT_ (271)
+FOR_ (272) 62 63
+GOTO_ (273) 64
+IF_ (274) 57 58
+INLINE_ (275)
+INT_ (276)
+LONG_ (277)
+REGISTER_ (278)
+RESTRICT_ (279) 9
+RETURN_ (280) 67
+SHORT_ (281)
+SIGNED_ (282)
+SIZEOF_ (283)
+STATIC_ (284) 17 18
+STRUCT_ (285)
+SWITCH_ (286) 59
+TYPEDEF_ (287)
+UNION_ (288)
+UNSIGNED_ (289)
+VOID_ (290)
+VOLATILE_ (291) 10
+WHILE_ (292) 60 61
+BOOL_ (293)
+COMPLEX_ (294)
+IMAGINARY_ (295)
+SQRBRK_OPEN_ (296) 16 17 18 19
+SQRBRK_CLOSE_ (297) 16 17 18 19
+PAREN_OPEN_ (298) 15 20 21 57 58 59 60 61 62 63
+PAREN_CLOSE_ (299) 15 20 21 57 58 59 60 61 62 63
+CURBRK_OPEN_ (300) 47
+CURBRK_CLOSE_ (301) 47
+DOT_ (302)
+ARROW_ (303)
+INCR_ (304)
+DECR_ (305)
+AND_ (306)
+STAR_ (307) 19 22 23
+PLUS_ (308)
+MINUS_ (309)
+TILDA_ (310)
+NOT_ (311)
+SLASH_ (312)
+PERCENT_ (313)
+LSHIFT_ (314)
+RSHIFT_ (315)
+LESS_ (316)
+GRTH_ (317)
+LESSE_ (318)
+GRTHE_ (319)
+EQUALS_ (320)
+NOTEQ_ (321)
+XOR_ (322)
+OR_ (323)
+ANDAND_ (324)
+OROR_ (325)
+QUES_ (326)
+COLON_ (327) 44 45 46
+SEMICOLON_ (328) 54 61 62 63 64 65 66 67
+TRPDOTS_ (329) 31
+ASSGN_ (330)
+ASSGNMUL_ (331)
+ASSGNDIV_ (332)
+ASSGNPERCENT_ (333)
+ASSGNPLUS_ (334)
+ASSGNMINUS_ (335)
+ASSGNLSHIFT_ (336)
+ASSGNRSHIFT_ (337)
+ASSGNAND_ (338)
+ASSGNOR_ (339)
+ASSGNXOR_ (340)
+COMMA_ (341) 31 33 37
+HASH_ (342)
+PUNCTUATOR_ (343)
+IDENTIFIER_ (344) 14 36 37 44 64
+FLOAT_CONSTANT_ (345)
+CHARACTER_CONSTANT_ (346)
+STRING_LITERAL_ (347)
+ENUMERATION_CONSTANT_ (348)
+INTEGER_CONSTANT_ (349)
+FRACTIONAL_CONSTANT_ (350)
+MULTI_COMMENT_START (351)
+MULTI_COMMENT_END (352)
+SINGLE_COMMENT_START (353)
+SINGLE_COMMENT_END (354)
+ELSE (355)
+
+
+Nonterminals, with rules where they appear
+
+$accept (101)
+    on left: 0
+constant_expression (102)
+    on left: 1, on right: 45
+assignment_expression (103)
+    on left: 2, on right: 17 18 26
+declaration_specifiers (104)
+    on left: 3, on right: 34 35 74
+expression (105)
+    on left: 4, on right: 55 57 58 59 60 61
+declaration (106)
+    on left: 5, on right: 52 63 71 75 76
+identifier_list_opt (107)
+    on left: 6 7, on right: 21
+type_qualifier (108)
+    on left: 8 9 10, on right: 28 29
+declarator (109)
+    on left: 11, on right: 15 34 74
+pointer_opt (110)
+    on left: 12 13, on right: 11
+direct_declarator (111)
+    on left: 14 15 16 17 18 19 20 21, on right: 11 16 17 18 19 20 21
+pointer (112)
+    on left: 22 23, on right: 12 23
+type_qualifier_list_opt (113)
+    on left: 24 25, on right: 16 17 19 22 23
+assignment_expression_opt (114)
+    on left: 26 27, on right: 16
+type_qualifier_list (115)
+    on left: 28 29, on right: 18 24 29
+parameter_type_list (116)
+    on left: 30 31, on right: 20
+parameter_list (117)
+    on left: 32 33, on right: 30 31 33
+parameter_declaration (118)
+    on left: 34 35, on right: 32 33
+identifier_list (119)
+    on left: 36 37, on right: 6 37
+statement (120)
+    on left: 38 39 40 41 42 43, on right: 44 45 46 53 57 58 59 60 61
+    62 63
+labeled_statement (121)
+    on left: 44 45 46, on right: 38
+compound_statement (122)
+    on left: 47, on right: 39 74
+block_item_list_opt (123)
+    on left: 48 49, on right: 47
+block_item_list (124)
+    on left: 50 51, on right: 48 51
+block_item (125)
+    on left: 52 53, on right: 50 51
+expression_statement (126)
+    on left: 54, on right: 40
+expression_opt (127)
+    on left: 55 56, on right: 54 62 63 67
+selection_statement (128)
+    on left: 57 58 59, on right: 41
+iteration_statement (129)
+    on left: 60 61 62 63, on right: 42
+jump_statement (130)
+    on left: 64 65 66 67, on right: 43
+translation_unit (131)
+    on left: 68 69, on right: 0 69
+external_declaration (132)
+    on left: 70 71, on right: 68 69
+declaration_list_opt (133)
+    on left: 72 73, on right: 74
+function_definition (134)
+    on left: 74, on right: 70
+declaration_list (135)
+    on left: 75 76, on right: 72 76
+
+
+State 0
+
+    0 $accept: . translation_unit $end
+
+    $end         reduce using rule 5 (declaration)
+    PAREN_OPEN_  reduce using rule 3 (declaration_specifiers)
+    PAREN_OPEN_  [reduce using rule 5 (declaration)]
+    STAR_        reduce using rule 3 (declaration_specifiers)
+    STAR_        [reduce using rule 5 (declaration)]
+    IDENTIFIER_  reduce using rule 3 (declaration_specifiers)
+    IDENTIFIER_  [reduce using rule 5 (declaration)]
+    $default     reduce using rule 3 (declaration_specifiers)
+
+    declaration_specifiers  go to state 1
+    declaration             go to state 2
+    translation_unit        go to state 3
+    external_declaration    go to state 4
+    function_definition     go to state 5
+
+
+State 1
+
+   74 function_definition: declaration_specifiers . declarator declaration_list_opt compound_statement
+
+    STAR_  shift, and go to state 6
+
+    $default  reduce using rule 13 (pointer_opt)
+
+    declarator   go to state 7
+    pointer_opt  go to state 8
+    pointer      go to state 9
+
+
+State 2
+
+   71 external_declaration: declaration .
+
+    $default  reduce using rule 71 (external_declaration)
+
+
+State 3
+
+    0 $accept: translation_unit . $end
+   69 translation_unit: translation_unit . external_declaration
+
+    $end  shift, and go to state 10
+
+    $end         [reduce using rule 5 (declaration)]
+    PAREN_OPEN_  reduce using rule 3 (declaration_specifiers)
+    PAREN_OPEN_  [reduce using rule 5 (declaration)]
+    STAR_        reduce using rule 3 (declaration_specifiers)
+    STAR_        [reduce using rule 5 (declaration)]
+    IDENTIFIER_  reduce using rule 3 (declaration_specifiers)
+    IDENTIFIER_  [reduce using rule 5 (declaration)]
+    $default     reduce using rule 3 (declaration_specifiers)
+
+    declaration_specifiers  go to state 1
+    declaration             go to state 2
+    external_declaration    go to state 11
+    function_definition     go to state 5
+
+
+State 4
+
+   68 translation_unit: external_declaration .
+
+    $default  reduce using rule 68 (translation_unit)
+
+
+State 5
+
+   70 external_declaration: function_definition .
+
+    $default  reduce using rule 70 (external_declaration)
+
+
+State 6
+
+   22 pointer: STAR_ . type_qualifier_list_opt
+   23        | STAR_ . type_qualifier_list_opt pointer
+
+    CONST_     shift, and go to state 12
+    RESTRICT_  shift, and go to state 13
+    VOLATILE_  shift, and go to state 14
+
+    $default  reduce using rule 25 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 15
+    type_qualifier_list_opt  go to state 16
+    type_qualifier_list      go to state 17
+
+
+State 7
+
+   74 function_definition: declaration_specifiers declarator . declaration_list_opt compound_statement
+
+    CURBRK_OPEN_  reduce using rule 5 (declaration)
+    CURBRK_OPEN_  [reduce using rule 73 (declaration_list_opt)]
+    $default      reduce using rule 5 (declaration)
+
+    declaration           go to state 18
+    declaration_list_opt  go to state 19
+    declaration_list      go to state 20
+
+
+State 8
+
+   11 declarator: pointer_opt . direct_declarator
+
+    PAREN_OPEN_  shift, and go to state 21
+    IDENTIFIER_  shift, and go to state 22
+
+    direct_declarator  go to state 23
+
+
+State 9
+
+   12 pointer_opt: pointer .
+
+    $default  reduce using rule 12 (pointer_opt)
+
+
+State 10
+
+    0 $accept: translation_unit $end .
+
+    $default  accept
+
+
+State 11
+
+   69 translation_unit: translation_unit external_declaration .
+
+    $default  reduce using rule 69 (translation_unit)
+
+
+State 12
+
+    8 type_qualifier: CONST_ .
+
+    $default  reduce using rule 8 (type_qualifier)
+
+
+State 13
+
+    9 type_qualifier: RESTRICT_ .
+
+    $default  reduce using rule 9 (type_qualifier)
+
+
+State 14
+
+   10 type_qualifier: VOLATILE_ .
+
+    $default  reduce using rule 10 (type_qualifier)
+
+
+State 15
+
+   28 type_qualifier_list: type_qualifier .
+
+    $default  reduce using rule 28 (type_qualifier_list)
+
+
+State 16
+
+   22 pointer: STAR_ type_qualifier_list_opt .
+   23        | STAR_ type_qualifier_list_opt . pointer
+
+    STAR_  shift, and go to state 6
+
+    $default  reduce using rule 22 (pointer)
+
+    pointer  go to state 24
+
+
+State 17
+
+   24 type_qualifier_list_opt: type_qualifier_list .
+   29 type_qualifier_list: type_qualifier_list . type_qualifier
+
+    CONST_     shift, and go to state 12
+    RESTRICT_  shift, and go to state 13
+    VOLATILE_  shift, and go to state 14
+
+    $default  reduce using rule 24 (type_qualifier_list_opt)
+
+    type_qualifier  go to state 25
+
+
+State 18
+
+   75 declaration_list: declaration .
+
+    $default  reduce using rule 75 (declaration_list)
+
+
+State 19
+
+   74 function_definition: declaration_specifiers declarator declaration_list_opt . compound_statement
+
+    CURBRK_OPEN_  shift, and go to state 26
+
+    compound_statement  go to state 27
+
+
+State 20
+
+   72 declaration_list_opt: declaration_list .
+   76 declaration_list: declaration_list . declaration
+
+    CURBRK_OPEN_  reduce using rule 5 (declaration)
+    CURBRK_OPEN_  [reduce using rule 72 (declaration_list_opt)]
+    $default      reduce using rule 5 (declaration)
+
+    declaration  go to state 28
+
+
+State 21
+
+   15 direct_declarator: PAREN_OPEN_ . declarator PAREN_CLOSE_
+
+    STAR_  shift, and go to state 6
+
+    $default  reduce using rule 13 (pointer_opt)
+
+    declarator   go to state 29
+    pointer_opt  go to state 8
+    pointer      go to state 9
+
+
+State 22
+
+   14 direct_declarator: IDENTIFIER_ .
+
+    $default  reduce using rule 14 (direct_declarator)
+
+
+State 23
+
+   11 declarator: pointer_opt direct_declarator .
+   16 direct_declarator: direct_declarator . SQRBRK_OPEN_ type_qualifier_list_opt assignment_expression_opt SQRBRK_CLOSE_
+   17                  | direct_declarator . SQRBRK_OPEN_ STATIC_ type_qualifier_list_opt assignment_expression SQRBRK_CLOSE_
+   18                  | direct_declarator . SQRBRK_OPEN_ type_qualifier_list STATIC_ assignment_expression SQRBRK_CLOSE_
+   19                  | direct_declarator . SQRBRK_OPEN_ type_qualifier_list_opt STAR_ SQRBRK_CLOSE_
+   20                  | direct_declarator . PAREN_OPEN_ parameter_type_list PAREN_CLOSE_
+   21                  | direct_declarator . PAREN_OPEN_ identifier_list_opt PAREN_CLOSE_
+
+    SQRBRK_OPEN_  shift, and go to state 30
+    PAREN_OPEN_   shift, and go to state 31
+
+    $default  reduce using rule 11 (declarator)
+
+
+State 24
+
+   23 pointer: STAR_ type_qualifier_list_opt pointer .
+
+    $default  reduce using rule 23 (pointer)
+
+
+State 25
+
+   29 type_qualifier_list: type_qualifier_list type_qualifier .
+
+    $default  reduce using rule 29 (type_qualifier_list)
+
+
+State 26
+
+   47 compound_statement: CURBRK_OPEN_ . block_item_list_opt CURBRK_CLOSE_
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    BREAK_         [reduce using rule 5 (declaration)]
+    CASE_          [reduce using rule 5 (declaration)]
+    CONTINUE_      [reduce using rule 5 (declaration)]
+    DEFAULT_       [reduce using rule 5 (declaration)]
+    DO_            [reduce using rule 5 (declaration)]
+    FOR_           [reduce using rule 5 (declaration)]
+    GOTO_          [reduce using rule 5 (declaration)]
+    IF_            [reduce using rule 5 (declaration)]
+    RETURN_        [reduce using rule 5 (declaration)]
+    SWITCH_        [reduce using rule 5 (declaration)]
+    WHILE_         [reduce using rule 5 (declaration)]
+    CURBRK_OPEN_   [reduce using rule 5 (declaration)]
+    CURBRK_CLOSE_  reduce using rule 5 (declaration)
+    CURBRK_CLOSE_  [reduce using rule 49 (block_item_list_opt)]
+    SEMICOLON_     reduce using rule 4 (expression)
+    SEMICOLON_     [reduce using rule 5 (declaration)]
+    SEMICOLON_     [reduce using rule 56 (expression_opt)]
+    IDENTIFIER_    [reduce using rule 5 (declaration)]
+    $default       reduce using rule 4 (expression)
+
+    expression            go to state 44
+    declaration           go to state 45
+    statement             go to state 46
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    block_item_list_opt   go to state 49
+    block_item_list       go to state 50
+    block_item            go to state 51
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 27
+
+   74 function_definition: declaration_specifiers declarator declaration_list_opt compound_statement .
+
+    $default  reduce using rule 74 (function_definition)
+
+
+State 28
+
+   76 declaration_list: declaration_list declaration .
+
+    $default  reduce using rule 76 (declaration_list)
+
+
+State 29
+
+   15 direct_declarator: PAREN_OPEN_ declarator . PAREN_CLOSE_
+
+    PAREN_CLOSE_  shift, and go to state 57
+
+
+State 30
+
+   16 direct_declarator: direct_declarator SQRBRK_OPEN_ . type_qualifier_list_opt assignment_expression_opt SQRBRK_CLOSE_
+   17                  | direct_declarator SQRBRK_OPEN_ . STATIC_ type_qualifier_list_opt assignment_expression SQRBRK_CLOSE_
+   18                  | direct_declarator SQRBRK_OPEN_ . type_qualifier_list STATIC_ assignment_expression SQRBRK_CLOSE_
+   19                  | direct_declarator SQRBRK_OPEN_ . type_qualifier_list_opt STAR_ SQRBRK_CLOSE_
+
+    CONST_     shift, and go to state 12
+    RESTRICT_  shift, and go to state 13
+    STATIC_    shift, and go to state 58
+    VOLATILE_  shift, and go to state 14
+
+    $default  reduce using rule 25 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 15
+    type_qualifier_list_opt  go to state 59
+    type_qualifier_list      go to state 60
+
+
+State 31
+
+   20 direct_declarator: direct_declarator PAREN_OPEN_ . parameter_type_list PAREN_CLOSE_
+   21                  | direct_declarator PAREN_OPEN_ . identifier_list_opt PAREN_CLOSE_
+
+    IDENTIFIER_  shift, and go to state 61
+
+    PAREN_CLOSE_  reduce using rule 3 (declaration_specifiers)
+    PAREN_CLOSE_  [reduce using rule 7 (identifier_list_opt)]
+    IDENTIFIER_   [reduce using rule 3 (declaration_specifiers)]
+    $default      reduce using rule 3 (declaration_specifiers)
+
+    declaration_specifiers  go to state 62
+    identifier_list_opt     go to state 63
+    parameter_type_list     go to state 64
+    parameter_list          go to state 65
+    parameter_declaration   go to state 66
+    identifier_list         go to state 67
+
+
+State 32
+
+   66 jump_statement: BREAK_ . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 68
+
+
+State 33
+
+   45 labeled_statement: CASE_ . constant_expression COLON_ statement
+
+    $default  reduce using rule 1 (constant_expression)
+
+    constant_expression  go to state 69
+
+
+State 34
+
+   65 jump_statement: CONTINUE_ . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 70
+
+
+State 35
+
+   46 labeled_statement: DEFAULT_ . COLON_ statement
+
+    COLON_  shift, and go to state 71
+
+
+State 36
+
+   61 iteration_statement: DO_ . statement WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ SEMICOLON_
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 72
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 37
+
+   62 iteration_statement: FOR_ . PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+   63                    | FOR_ . PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    PAREN_OPEN_  shift, and go to state 73
+
+
+State 38
+
+   64 jump_statement: GOTO_ . IDENTIFIER_ SEMICOLON_
+
+    IDENTIFIER_  shift, and go to state 74
+
+
+State 39
+
+   57 selection_statement: IF_ . PAREN_OPEN_ expression PAREN_CLOSE_ statement
+   58                    | IF_ . PAREN_OPEN_ expression PAREN_CLOSE_ statement ELSE_ statement
+
+    PAREN_OPEN_  shift, and go to state 75
+
+
+State 40
+
+   67 jump_statement: RETURN_ . expression_opt SEMICOLON_
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 76
+
+
+State 41
+
+   59 selection_statement: SWITCH_ . PAREN_OPEN_ expression PAREN_CLOSE_ statement
+
+    PAREN_OPEN_  shift, and go to state 77
+
+
+State 42
+
+   60 iteration_statement: WHILE_ . PAREN_OPEN_ expression PAREN_CLOSE_ statement
+
+    PAREN_OPEN_  shift, and go to state 78
+
+
+State 43
+
+   44 labeled_statement: IDENTIFIER_ . COLON_ statement
+
+    COLON_  shift, and go to state 79
+
+
+State 44
+
+   55 expression_opt: expression .
+
+    $default  reduce using rule 55 (expression_opt)
+
+
+State 45
+
+   52 block_item: declaration .
+
+    $default  reduce using rule 52 (block_item)
+
+
+State 46
+
+   53 block_item: statement .
+
+    $default  reduce using rule 53 (block_item)
+
+
+State 47
+
+   38 statement: labeled_statement .
+
+    $default  reduce using rule 38 (statement)
+
+
+State 48
+
+   39 statement: compound_statement .
+
+    $default  reduce using rule 39 (statement)
+
+
+State 49
+
+   47 compound_statement: CURBRK_OPEN_ block_item_list_opt . CURBRK_CLOSE_
+
+    CURBRK_CLOSE_  shift, and go to state 80
+
+
+State 50
+
+   48 block_item_list_opt: block_item_list .
+   51 block_item_list: block_item_list . block_item
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    BREAK_         [reduce using rule 5 (declaration)]
+    CASE_          [reduce using rule 5 (declaration)]
+    CONTINUE_      [reduce using rule 5 (declaration)]
+    DEFAULT_       [reduce using rule 5 (declaration)]
+    DO_            [reduce using rule 5 (declaration)]
+    FOR_           [reduce using rule 5 (declaration)]
+    GOTO_          [reduce using rule 5 (declaration)]
+    IF_            [reduce using rule 5 (declaration)]
+    RETURN_        [reduce using rule 5 (declaration)]
+    SWITCH_        [reduce using rule 5 (declaration)]
+    WHILE_         [reduce using rule 5 (declaration)]
+    CURBRK_OPEN_   [reduce using rule 5 (declaration)]
+    CURBRK_CLOSE_  reduce using rule 5 (declaration)
+    CURBRK_CLOSE_  [reduce using rule 48 (block_item_list_opt)]
+    SEMICOLON_     reduce using rule 4 (expression)
+    SEMICOLON_     [reduce using rule 5 (declaration)]
+    SEMICOLON_     [reduce using rule 56 (expression_opt)]
+    IDENTIFIER_    [reduce using rule 5 (declaration)]
+    $default       reduce using rule 4 (expression)
+
+    expression            go to state 44
+    declaration           go to state 45
+    statement             go to state 46
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    block_item            go to state 81
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 51
+
+   50 block_item_list: block_item .
+
+    $default  reduce using rule 50 (block_item_list)
+
+
+State 52
+
+   40 statement: expression_statement .
+
+    $default  reduce using rule 40 (statement)
+
+
+State 53
+
+   54 expression_statement: expression_opt . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 82
+
+
+State 54
+
+   41 statement: selection_statement .
+
+    $default  reduce using rule 41 (statement)
+
+
+State 55
+
+   42 statement: iteration_statement .
+
+    $default  reduce using rule 42 (statement)
+
+
+State 56
+
+   43 statement: jump_statement .
+
+    $default  reduce using rule 43 (statement)
+
+
+State 57
+
+   15 direct_declarator: PAREN_OPEN_ declarator PAREN_CLOSE_ .
+
+    $default  reduce using rule 15 (direct_declarator)
+
+
+State 58
+
+   17 direct_declarator: direct_declarator SQRBRK_OPEN_ STATIC_ . type_qualifier_list_opt assignment_expression SQRBRK_CLOSE_
+
+    CONST_     shift, and go to state 12
+    RESTRICT_  shift, and go to state 13
+    VOLATILE_  shift, and go to state 14
+
+    $default  reduce using rule 25 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 15
+    type_qualifier_list_opt  go to state 83
+    type_qualifier_list      go to state 17
+
+
+State 59
+
+   16 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt . assignment_expression_opt SQRBRK_CLOSE_
+   19                  | direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt . STAR_ SQRBRK_CLOSE_
+
+    STAR_  shift, and go to state 84
+
+    SQRBRK_CLOSE_  reduce using rule 2 (assignment_expression)
+    SQRBRK_CLOSE_  [reduce using rule 27 (assignment_expression_opt)]
+    $default       reduce using rule 2 (assignment_expression)
+
+    assignment_expression      go to state 85
+    assignment_expression_opt  go to state 86
+
+
+State 60
+
+   18 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list . STATIC_ assignment_expression SQRBRK_CLOSE_
+   24 type_qualifier_list_opt: type_qualifier_list .
+   29 type_qualifier_list: type_qualifier_list . type_qualifier
+
+    CONST_     shift, and go to state 12
+    RESTRICT_  shift, and go to state 13
+    STATIC_    shift, and go to state 87
+    VOLATILE_  shift, and go to state 14
+
+    $default  reduce using rule 24 (type_qualifier_list_opt)
+
+    type_qualifier  go to state 25
+
+
+State 61
+
+   36 identifier_list: IDENTIFIER_ .
+
+    $default  reduce using rule 36 (identifier_list)
+
+
+State 62
+
+   34 parameter_declaration: declaration_specifiers . declarator
+   35                      | declaration_specifiers .
+
+    STAR_  shift, and go to state 6
+
+    PAREN_CLOSE_  reduce using rule 35 (parameter_declaration)
+    COMMA_        reduce using rule 35 (parameter_declaration)
+    $default      reduce using rule 13 (pointer_opt)
+
+    declarator   go to state 88
+    pointer_opt  go to state 8
+    pointer      go to state 9
+
+
+State 63
+
+   21 direct_declarator: direct_declarator PAREN_OPEN_ identifier_list_opt . PAREN_CLOSE_
+
+    PAREN_CLOSE_  shift, and go to state 89
+
+
+State 64
+
+   20 direct_declarator: direct_declarator PAREN_OPEN_ parameter_type_list . PAREN_CLOSE_
+
+    PAREN_CLOSE_  shift, and go to state 90
+
+
+State 65
+
+   30 parameter_type_list: parameter_list .
+   31                    | parameter_list . COMMA_ TRPDOTS_
+   33 parameter_list: parameter_list . COMMA_ parameter_declaration
+
+    COMMA_  shift, and go to state 91
+
+    $default  reduce using rule 30 (parameter_type_list)
+
+
+State 66
+
+   32 parameter_list: parameter_declaration .
+
+    $default  reduce using rule 32 (parameter_list)
+
+
+State 67
+
+    6 identifier_list_opt: identifier_list .
+   37 identifier_list: identifier_list . COMMA_ IDENTIFIER_
+
+    COMMA_  shift, and go to state 92
+
+    $default  reduce using rule 6 (identifier_list_opt)
+
+
+State 68
+
+   66 jump_statement: BREAK_ SEMICOLON_ .
+
+    $default  reduce using rule 66 (jump_statement)
+
+
+State 69
+
+   45 labeled_statement: CASE_ constant_expression . COLON_ statement
+
+    COLON_  shift, and go to state 93
+
+
+State 70
+
+   65 jump_statement: CONTINUE_ SEMICOLON_ .
+
+    $default  reduce using rule 65 (jump_statement)
+
+
+State 71
+
+   46 labeled_statement: DEFAULT_ COLON_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 94
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 72
+
+   61 iteration_statement: DO_ statement . WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ SEMICOLON_
+
+    WHILE_  shift, and go to state 95
+
+
+State 73
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ . expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+   63                    | FOR_ PAREN_OPEN_ . declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 5 (declaration)]
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression      go to state 44
+    declaration     go to state 96
+    expression_opt  go to state 97
+
+
+State 74
+
+   64 jump_statement: GOTO_ IDENTIFIER_ . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 98
+
+
+State 75
+
+   57 selection_statement: IF_ PAREN_OPEN_ . expression PAREN_CLOSE_ statement
+   58                    | IF_ PAREN_OPEN_ . expression PAREN_CLOSE_ statement ELSE_ statement
+
+    $default  reduce using rule 4 (expression)
+
+    expression  go to state 99
+
+
+State 76
+
+   67 jump_statement: RETURN_ expression_opt . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 100
+
+
+State 77
+
+   59 selection_statement: SWITCH_ PAREN_OPEN_ . expression PAREN_CLOSE_ statement
+
+    $default  reduce using rule 4 (expression)
+
+    expression  go to state 101
+
+
+State 78
+
+   60 iteration_statement: WHILE_ PAREN_OPEN_ . expression PAREN_CLOSE_ statement
+
+    $default  reduce using rule 4 (expression)
+
+    expression  go to state 102
+
+
+State 79
+
+   44 labeled_statement: IDENTIFIER_ COLON_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 103
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 80
+
+   47 compound_statement: CURBRK_OPEN_ block_item_list_opt CURBRK_CLOSE_ .
+
+    $default  reduce using rule 47 (compound_statement)
+
+
+State 81
+
+   51 block_item_list: block_item_list block_item .
+
+    $default  reduce using rule 51 (block_item_list)
+
+
+State 82
+
+   54 expression_statement: expression_opt SEMICOLON_ .
+
+    $default  reduce using rule 54 (expression_statement)
+
+
+State 83
+
+   17 direct_declarator: direct_declarator SQRBRK_OPEN_ STATIC_ type_qualifier_list_opt . assignment_expression SQRBRK_CLOSE_
+
+    $default  reduce using rule 2 (assignment_expression)
+
+    assignment_expression  go to state 104
+
+
+State 84
+
+   19 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt STAR_ . SQRBRK_CLOSE_
+
+    SQRBRK_CLOSE_  shift, and go to state 105
+
+
+State 85
+
+   26 assignment_expression_opt: assignment_expression .
+
+    $default  reduce using rule 26 (assignment_expression_opt)
+
+
+State 86
+
+   16 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt assignment_expression_opt . SQRBRK_CLOSE_
+
+    SQRBRK_CLOSE_  shift, and go to state 106
+
+
+State 87
+
+   18 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list STATIC_ . assignment_expression SQRBRK_CLOSE_
+
+    $default  reduce using rule 2 (assignment_expression)
+
+    assignment_expression  go to state 107
+
+
+State 88
+
+   34 parameter_declaration: declaration_specifiers declarator .
+
+    $default  reduce using rule 34 (parameter_declaration)
+
+
+State 89
+
+   21 direct_declarator: direct_declarator PAREN_OPEN_ identifier_list_opt PAREN_CLOSE_ .
+
+    $default  reduce using rule 21 (direct_declarator)
+
+
+State 90
+
+   20 direct_declarator: direct_declarator PAREN_OPEN_ parameter_type_list PAREN_CLOSE_ .
+
+    $default  reduce using rule 20 (direct_declarator)
+
+
+State 91
+
+   31 parameter_type_list: parameter_list COMMA_ . TRPDOTS_
+   33 parameter_list: parameter_list COMMA_ . parameter_declaration
+
+    TRPDOTS_  shift, and go to state 108
+
+    $default  reduce using rule 3 (declaration_specifiers)
+
+    declaration_specifiers  go to state 62
+    parameter_declaration   go to state 109
+
+
+State 92
+
+   37 identifier_list: identifier_list COMMA_ . IDENTIFIER_
+
+    IDENTIFIER_  shift, and go to state 110
+
+
+State 93
+
+   45 labeled_statement: CASE_ constant_expression COLON_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 111
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 94
+
+   46 labeled_statement: DEFAULT_ COLON_ statement .
+
+    $default  reduce using rule 46 (labeled_statement)
+
+
+State 95
+
+   61 iteration_statement: DO_ statement WHILE_ . PAREN_OPEN_ expression PAREN_CLOSE_ SEMICOLON_
+
+    PAREN_OPEN_  shift, and go to state 112
+
+
+State 96
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration . expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 113
+
+
+State 97
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt . SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  shift, and go to state 114
+
+
+State 98
+
+   64 jump_statement: GOTO_ IDENTIFIER_ SEMICOLON_ .
+
+    $default  reduce using rule 64 (jump_statement)
+
+
+State 99
+
+   57 selection_statement: IF_ PAREN_OPEN_ expression . PAREN_CLOSE_ statement
+   58                    | IF_ PAREN_OPEN_ expression . PAREN_CLOSE_ statement ELSE_ statement
+
+    PAREN_CLOSE_  shift, and go to state 115
+
+
+State 100
+
+   67 jump_statement: RETURN_ expression_opt SEMICOLON_ .
+
+    $default  reduce using rule 67 (jump_statement)
+
+
+State 101
+
+   59 selection_statement: SWITCH_ PAREN_OPEN_ expression . PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  shift, and go to state 116
+
+
+State 102
+
+   60 iteration_statement: WHILE_ PAREN_OPEN_ expression . PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  shift, and go to state 117
+
+
+State 103
+
+   44 labeled_statement: IDENTIFIER_ COLON_ statement .
+
+    $default  reduce using rule 44 (labeled_statement)
+
+
+State 104
+
+   17 direct_declarator: direct_declarator SQRBRK_OPEN_ STATIC_ type_qualifier_list_opt assignment_expression . SQRBRK_CLOSE_
+
+    SQRBRK_CLOSE_  shift, and go to state 118
+
+
+State 105
+
+   19 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt STAR_ SQRBRK_CLOSE_ .
+
+    $default  reduce using rule 19 (direct_declarator)
+
+
+State 106
+
+   16 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list_opt assignment_expression_opt SQRBRK_CLOSE_ .
+
+    $default  reduce using rule 16 (direct_declarator)
+
+
+State 107
+
+   18 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list STATIC_ assignment_expression . SQRBRK_CLOSE_
+
+    SQRBRK_CLOSE_  shift, and go to state 119
+
+
+State 108
+
+   31 parameter_type_list: parameter_list COMMA_ TRPDOTS_ .
+
+    $default  reduce using rule 31 (parameter_type_list)
+
+
+State 109
+
+   33 parameter_list: parameter_list COMMA_ parameter_declaration .
+
+    $default  reduce using rule 33 (parameter_list)
+
+
+State 110
+
+   37 identifier_list: identifier_list COMMA_ IDENTIFIER_ .
+
+    $default  reduce using rule 37 (identifier_list)
+
+
+State 111
+
+   45 labeled_statement: CASE_ constant_expression COLON_ statement .
+
+    $default  reduce using rule 45 (labeled_statement)
+
+
+State 112
+
+   61 iteration_statement: DO_ statement WHILE_ PAREN_OPEN_ . expression PAREN_CLOSE_ SEMICOLON_
+
+    $default  reduce using rule 4 (expression)
+
+    expression  go to state 120
+
+
+State 113
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt . SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  shift, and go to state 121
+
+
+State 114
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ . expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 122
+
+
+State 115
+
+   57 selection_statement: IF_ PAREN_OPEN_ expression PAREN_CLOSE_ . statement
+   58                    | IF_ PAREN_OPEN_ expression PAREN_CLOSE_ . statement ELSE_ statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 123
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 116
+
+   59 selection_statement: SWITCH_ PAREN_OPEN_ expression PAREN_CLOSE_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 124
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 117
+
+   60 iteration_statement: WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 125
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 118
+
+   17 direct_declarator: direct_declarator SQRBRK_OPEN_ STATIC_ type_qualifier_list_opt assignment_expression SQRBRK_CLOSE_ .
+
+    $default  reduce using rule 17 (direct_declarator)
+
+
+State 119
+
+   18 direct_declarator: direct_declarator SQRBRK_OPEN_ type_qualifier_list STATIC_ assignment_expression SQRBRK_CLOSE_ .
+
+    $default  reduce using rule 18 (direct_declarator)
+
+
+State 120
+
+   61 iteration_statement: DO_ statement WHILE_ PAREN_OPEN_ expression . PAREN_CLOSE_ SEMICOLON_
+
+    PAREN_CLOSE_  shift, and go to state 126
+
+
+State 121
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ . expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 127
+
+
+State 122
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt . SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  shift, and go to state 128
+
+
+State 123
+
+   57 selection_statement: IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement .
+   58                    | IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement . ELSE_ statement
+
+    ELSE_  shift, and go to state 129
+
+    ELSE_     [reduce using rule 57 (selection_statement)]
+    $default  reduce using rule 57 (selection_statement)
+
+
+State 124
+
+   59 selection_statement: SWITCH_ PAREN_OPEN_ expression PAREN_CLOSE_ statement .
+
+    $default  reduce using rule 59 (selection_statement)
+
+
+State 125
+
+   60 iteration_statement: WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ statement .
+
+    $default  reduce using rule 60 (iteration_statement)
+
+
+State 126
+
+   61 iteration_statement: DO_ statement WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ . SEMICOLON_
+
+    SEMICOLON_  shift, and go to state 130
+
+
+State 127
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt . SEMICOLON_ expression_opt PAREN_CLOSE_ statement
+
+    SEMICOLON_  shift, and go to state 131
+
+
+State 128
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ . expression_opt PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  reduce using rule 4 (expression)
+    PAREN_CLOSE_  [reduce using rule 56 (expression_opt)]
+    $default      reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 132
+
+
+State 129
+
+   58 selection_statement: IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement ELSE_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 133
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 130
+
+   61 iteration_statement: DO_ statement WHILE_ PAREN_OPEN_ expression PAREN_CLOSE_ SEMICOLON_ .
+
+    $default  reduce using rule 61 (iteration_statement)
+
+
+State 131
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ . expression_opt PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  reduce using rule 4 (expression)
+    PAREN_CLOSE_  [reduce using rule 56 (expression_opt)]
+    $default      reduce using rule 4 (expression)
+
+    expression      go to state 44
+    expression_opt  go to state 134
+
+
+State 132
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt . PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  shift, and go to state 135
+
+
+State 133
+
+   58 selection_statement: IF_ PAREN_OPEN_ expression PAREN_CLOSE_ statement ELSE_ statement .
+
+    $default  reduce using rule 58 (selection_statement)
+
+
+State 134
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt . PAREN_CLOSE_ statement
+
+    PAREN_CLOSE_  shift, and go to state 136
+
+
+State 135
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 137
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 136
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ . statement
+
+    BREAK_        shift, and go to state 32
+    CASE_         shift, and go to state 33
+    CONTINUE_     shift, and go to state 34
+    DEFAULT_      shift, and go to state 35
+    DO_           shift, and go to state 36
+    FOR_          shift, and go to state 37
+    GOTO_         shift, and go to state 38
+    IF_           shift, and go to state 39
+    RETURN_       shift, and go to state 40
+    SWITCH_       shift, and go to state 41
+    WHILE_        shift, and go to state 42
+    CURBRK_OPEN_  shift, and go to state 26
+    IDENTIFIER_   shift, and go to state 43
+
+    SEMICOLON_  reduce using rule 4 (expression)
+    SEMICOLON_  [reduce using rule 56 (expression_opt)]
+    $default    reduce using rule 4 (expression)
+
+    expression            go to state 44
+    statement             go to state 138
+    labeled_statement     go to state 47
+    compound_statement    go to state 48
+    expression_statement  go to state 52
+    expression_opt        go to state 53
+    selection_statement   go to state 54
+    iteration_statement   go to state 55
+    jump_statement        go to state 56
+
+
+State 137
+
+   62 iteration_statement: FOR_ PAREN_OPEN_ expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement .
+
+    $default  reduce using rule 62 (iteration_statement)
+
+
+State 138
+
+   63 iteration_statement: FOR_ PAREN_OPEN_ declaration expression_opt SEMICOLON_ expression_opt SEMICOLON_ expression_opt PAREN_CLOSE_ statement .
+
+    $default  reduce using rule 63 (iteration_statement)

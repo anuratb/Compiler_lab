@@ -1,0 +1,85 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: fibo :
+4: t0 = 1
+5: if n <= t0 goto 7
+6: goto 8
+7: return n
+8: t1 = 1
+9: t2 = n - t1
+10: param t2
+11: t3 = call fibo , 1
+12: t4 = 2
+13: t5 = n - t4
+14: param t5
+15: t6 = call fibo , 1
+16: t7 = t3 + t6
+17: return t7
+18: main :
+19: t8 = "******Program to print ith fibonacci number (Seq: 0 1 1 2 3 5 ....) (recursive function)*******\n"
+20: param t8
+21: t9 = call printStr , 1
+22: t10 = "Enter x: "
+23: param t10
+24: t11 = call printStr , 1
+25: t12 = &(x)
+26: param t12
+27: t13 = call readInt , 1
+28: t14 = "Fibo(x) is: "
+29: param t14
+30: t15 = call printStr , 1
+31: param x
+32: t16 = call fibo , 1
+33: param t16
+34: t17 = call printInt , 1
+35: t18 = "\n"
+36: param t18
+37: t19 = call printStr , 1
+38: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+fibo    | function   |    | 0  |0   | ST4  |
+main    | function   |    | 0  |0   | ST7  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+n    | int   |    | 4  |0   | null   |t1    | int   | 1   | 4  |4   | null   |t2    | int   |    | 4  |8   | null   |t3    | int   |    | 4  |12   | null   |t4    | int   | 2   | 4  |16   | null   |t5    | int   |    | 4  |20   | null   |t6    | int   |    | 4  |24   | null   |t7    | int   |    | 4  |28   | null   |t0    | int   | 1   | 4  |32   | null   |
+--------Printing symbol Table---------
+Current Table: ST7
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   |    | 4  |0   | null   |t8    | ptr(char)   | "******Program to print ith fibonacci number (Seq: 0 1 1 2 3 5 ....) (recursive function)*******\n"   | 8  |4   | null   |t9    | int   |    | 4  |12   | null   |t10    | ptr(char)   | "Enter x: "   | 8  |16   | null   |t11    | int   |    | 4  |24   | null   |t12    | ptr(int)   |    | 8  |28   | null   |t13    | int   |    | 4  |36   | null   |t14    | ptr(char)   | "Fibo(x) is: "   | 8  |40   | null   |t15    | int   |    | 4  |48   | null   |t16    | int   |    | 4  |52   | null   |t17    | int   |    | 4  |56   | null   |t18    | ptr(char)   | "\n"   | 8  |60   | null   |t19    | int   |    | 4  |68   | null   |

@@ -1,0 +1,50 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: hypoSqr :
+1: t0 = base * base
+2: t1 = ht * ht
+3: t2 = t0 + t1
+4: return t2
+5: main :
+6: t3 = 7
+7: b = t3
+8: t4 = 9
+9: h = t4
+10: param b
+11: param h
+12: t5 = call hypoSqr , 2
+13: ans = t5
+14: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+hypoSqr    | function   |    | 4  |0   | ST1  |
+main    | function   |    | 4  |4   | ST3  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+base    | int   |    | 4  |0   | null   |
+ht    | int   |    | 4  |4   | null   |
+t0    | int   |    | 4  |8   | null   |
+t1    | int   |    | 4  |12   | null   |
+t2    | int   |    | 4  |16   | null   |
+
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+b    | int   |    | 4  |0   | null   |
+h    | int   |    | 4  |4   | null   |
+t3    | int   | 7   | 4  |8   | null   |
+t4    | int   | 9   | 4  |12   | null   |
+ans    | int   |    | 4  |16   | null   |
+t5    | int   |    | 4  |20   | null   |

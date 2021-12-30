@@ -1,0 +1,45 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: main :
+1: t0 = 6
+2: x = t0
+3: t1 = 7
+4: y = t1
+5: if x == y goto 7
+6: goto 10
+7: t2 = 6
+8: x = t2
+9: goto 18
+10: t3 = 8
+11: if x == t3 goto 13
+12: goto 16
+13: t4 = 6
+14: k = t4
+15: goto 18
+16: t5 = 6
+17: y = t5
+18: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+main    | function   |    | 4  |0   | ST1  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   | 6   | 4  |0   | null   |
+t0    | int   | 6   | 4  |4   | null   |
+y    | int   | 7   | 4  |8   | null   |
+t1    | int   | 7   | 4  |12   | null   |
+t2    | int   | 6   | 4  |16   | null   |
+t3    | int   | 8   | 4  |20   | null   |
+k    | int   | 6   | 4  |24   | null   |
+t4    | int   | 6   | 4  |28   | null   |
+t5    | int   | 6   | 4  |32   | null   |

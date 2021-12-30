@@ -1,0 +1,79 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: t0 = 7
+4: y = t0
+5: sum :
+6: t1 = a1 + a2
+7: return t1
+8: main :
+9: t2 = "******Program to print sum of 2 numbers one taken as input and other set globally as 7,tests handling of globals*******\n"
+10: param t2
+11: t3 = call printStr , 1
+12: t4 = "Enter x: "
+13: param t4
+14: t5 = call printStr , 1
+15: t6 = &(x)
+16: param t6
+17: t7 = call readInt , 1
+18: param x
+19: param y
+20: t8 = call sum , 2
+21: sm = t8
+22: t9 = "Summ of x and y,globally declared as 7 : "
+23: param t9
+24: t10 = call printStr , 1
+25: param sm
+26: t11 = call printInt , 1
+27: t12 = "\n"
+28: param t12
+29: t13 = call printStr , 1
+30: t14 = 0
+31: return t14
+32: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+y    | int   | 7   | 4  |0   | null   |t0    | int   | 7   | 4  |4   | null   |sum    | function   |    | 0  |8   | ST4  |
+main    | function   |    | 0  |8   | ST6  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+a1    | int   |    | 4  |0   | null   |a2    | int   |    | 4  |4   | null   |t1    | int   |    | 4  |8   | null   |
+--------Printing symbol Table---------
+Current Table: ST6
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+t2    | ptr(char)   | "******Program to print sum of 2 numbers one taken as input and other set globally as 7,tests handling of globals*******\n"   | 8  |0   | null   |t3    | int   |    | 4  |8   | null   |x    | int   |    | 4  |12   | null   |t4    | ptr(char)   | "Enter x: "   | 8  |16   | null   |t5    | int   |    | 4  |24   | null   |t6    | ptr(int)   |    | 8  |28   | null   |t7    | int   |    | 4  |36   | null   |sm    | int   |    | 4  |40   | null   |t8    | int   |    | 4  |44   | null   |t9    | ptr(char)   | "Summ of x and y,globally declared as 7 : "   | 8  |48   | null   |t10    | int   |    | 4  |56   | null   |t11    | int   |    | 4  |60   | null   |t12    | ptr(char)   | "\n"   | 8  |64   | null   |t13    | int   |    | 4  |72   | null   |t14    | int   | 0   | 4  |76   | null   |

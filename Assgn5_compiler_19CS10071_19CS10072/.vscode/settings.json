@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072",
+            "binaryPath": "/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072/a.out",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072",
+            "binaryPath": "/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072/tinyC",
+            "binaryArgs": []
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: main :
+1: t0 = 5
+2: x = t0
+3: t1 = *(a)
+4: t2 = 6
+5: *(a) = t2
+6: t3 = *(b)
+7: *(b) = x
+8: t4 = *(a)
+9: x = t4
+10: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+main    | function   |    | 4  |0   | ST1  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+a    | ptr(int)   |    | 4  |0   | null   |
+b    | ptr(int)   |    | 4  |4   | null   |
+x    | int   | 5   | 4  |8   | null   |
+t0    | int   | 5   | 4  |12   | null   |
+t1    | int   |    | 4  |16   | null   |
+t2    | int   | 6   | 4  |20   | null   |
+t3    | int   |    | 4  |24   | null   |
+t4    | int   |    | 4  |28   | null   |

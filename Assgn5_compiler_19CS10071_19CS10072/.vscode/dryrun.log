@@ -1,0 +1,5 @@
+make tinyC --dry-run --keep-going --print-directory
+make: Entering directory '/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072'
+make: 'tinyC' is up to date.
+make: Leaving directory '/home/anurat/Compiler_lab/Assgn5_compiler_19CS10071_19CS10072'
+ 

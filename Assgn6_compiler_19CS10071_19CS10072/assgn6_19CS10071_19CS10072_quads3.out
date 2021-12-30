@@ -1,0 +1,130 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: main :
+4: t0 = "******Program to print largest non empty subarray sum using Kadanes algorithm*******\n"
+5: param t0
+6: t1 = call printStr , 1
+7: t2 = "Enter 10 elements of the array(one by one pressing enter) : "
+8: param t2
+9: t3 = call printStr , 1
+10: t4 = 10
+11: t5 = 0
+12: sm = t5
+13: t6 = 0
+14: i = t6
+15: t7 = 10
+16: if i < t7 goto 21
+17: goto 28
+18: t8 = i
+19: i = i + 1
+20: goto 15
+21: t9 = 0
+22: t10 = arr + t9
+23: t11 = i * 4
+24: t12 = t10 + t11
+25: param t12
+26: t13 = call readInt , 1
+27: goto 18
+28: t14 = 10
+29: t15 = 0
+30: t16 = 0
+31: t17 = t16 * 4
+32: t18 = arr[t17]
+33: init = t18
+34: t19 = 0
+35: t20 = 0
+36: t21 = t20 * 4
+37: dp[t21] = init
+38: t22 = 0
+39: t23 = 0
+40: t24 = t23 * 4
+41: t25 = arr[t24]
+42: sm = t25
+43: t26 = 1
+44: i = t26
+45: t27 = 10
+46: if i < t27 goto 51
+47: goto 82
+48: t28 = i
+49: i = i + 1
+50: goto 45
+51: t29 = 0
+52: t30 = 1
+53: t31 = i - t30
+54: t32 = t31 * 4
+55: t33 = dp[t32]
+56: prev = t33
+57: t34 = 0
+58: t35 = i * 4
+59: t36 = arr[t35]
+60: curr = t36
+61: t37 = 0
+62: if prev > t37 goto 64
+63: goto 69
+64: t38 = 0
+65: t39 = i * 4
+66: t40 = curr + prev
+67: dp[t39] = t40
+68: goto 72
+69: t41 = 0
+70: t42 = i * 4
+71: dp[t42] = curr
+72: t43 = 0
+73: t44 = i * 4
+74: t45 = dp[t44]
+75: if sm < t45 goto 77
+76: goto 48
+77: t46 = 0
+78: t47 = i * 4
+79: t48 = dp[t47]
+80: sm = t48
+81: goto 48
+82: t49 = "Largest nonempty subarray sum: "
+83: param t49
+84: t50 = call printStr , 1
+85: param sm
+86: t51 = call printInt , 1
+87: t52 = "\n"
+88: param t52
+89: t53 = call printStr , 1
+90: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+main    | function   |    | 0  |0   | ST4  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+t0    | ptr(char)   | "******Program to print largest non empty subarray sum using Kadanes algorithm*******\n"   | 8  |0   | null   |t1    | int   |    | 4  |8   | null   |t2    | ptr(char)   | "Enter 10 elements of the array(one by one pressing enter) : "   | 8  |12   | null   |t3    | int   |    | 4  |20   | null   |arr    | array(10,int)   |    | 40  |24   | null   |t4    | int   | 10   | 4  |64   | null   |sm    | int   | 0   | 4  |68   | null   |t5    | int   | 0   | 4  |72   | null   |i    | int   | 1   | 4  |76   | null   |dp    | array(10,int)   |    | 40  |80   | null   |t14    | int   | 10   | 4  |120   | null   |init    | int   |    | 4  |124   | null   |t15    | int   | 0   | 4  |128   | null   |t16    | int   | 0   | 4  |132   | null   |t17    | int   |    | 4  |136   | null   |t18    | int   |    | 4  |140   | null   |t19    | int   | 0   | 4  |144   | null   |t20    | int   | 0   | 4  |148   | null   |t21    | int   |    | 4  |152   | null   |t22    | int   | 0   | 4  |156   | null   |t23    | int   | 0   | 4  |160   | null   |t24    | int   |    | 4  |164   | null   |t25    | int   |    | 4  |168   | null   |t49    | ptr(char)   | "Largest nonempty subarray sum: "   | 8  |172   | null   |t50    | int   |    | 4  |180   | null   |t51    | int   |    | 4  |184   | null   |t52    | ptr(char)   | "\n"   | 8  |188   | null   |t53    | int   |    | 4  |196   | null   |t6    | int   | 0   | 4  |200   | null   |t7    | int   | 10   | 4  |204   | null   |t8    | int   |    | 4  |208   | null   |t9    | int   | 0   | 4  |212   | null   |t10    | ptr(int)   |    | 8  |216   | null   |t11    | int   |    | 4  |224   | null   |t12    | ptr(int)   |    | 8  |228   | null   |t13    | int   |    | 4  |236   | null   |t26    | int   | 1   | 4  |240   | null   |t27    | int   | 10   | 4  |244   | null   |t28    | int   |    | 4  |248   | null   |prev    | int   |    | 4  |252   | null   |t29    | int   | 0   | 4  |256   | null   |t30    | int   | 1   | 4  |260   | null   |t31    | int   |    | 4  |264   | null   |t32    | int   |    | 4  |268   | null   |t33    | int   |    | 4  |272   | null   |curr    | int   |    | 4  |276   | null   |t34    | int   | 0   | 4  |280   | null   |t35    | int   |    | 4  |284   | null   |t36    | int   |    | 4  |288   | null   |t37    | int   | 0   | 4  |292   | null   |t38    | int   | 0   | 4  |296   | null   |t39    | int   |    | 4  |300   | null   |t40    | int   |    | 4  |304   | null   |t41    | int   | 0   | 4  |308   | null   |t42    | int   |    | 4  |312   | null   |t43    | int   | 0   | 4  |316   | null   |t44    | int   |    | 4  |320   | null   |t45    | int   |    | 4  |324   | null   |t46    | int   | 0   | 4  |328   | null   |t47    | int   |    | 4  |332   | null   |t48    | int   |    | 4  |336   | null   |

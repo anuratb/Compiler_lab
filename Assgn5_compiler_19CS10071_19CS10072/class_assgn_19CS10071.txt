@@ -1,0 +1,150 @@
+19CS10071
+Anurat Bhattacharya
+Compilers In Class Assignment (2/11/2020)
+
+TAC : 
+    i = 0
+Loop:
+    if i>=n goto L_STOP
+    a = b+c
+    t1= i*4
+    t5 = t1+p
+    t2 = a*a
+    t3 = 4*i
+    t4 = t2+t3
+    M[t5]  =t4
+    t6 = i+1
+    i = t6+1
+    goto Loop
+L_STOP:
+
+CFG:
+    ///////
+    /i = 0/
+    ///////
+       |
+       |
+      \|/
+    //////////////////////////  
+    //Loop:
+    //    if i>=n goto L_STOP
+    //    a = b+c
+    //    t1= i*4
+    //    t5 = t1+p
+    //    t2 = a*a
+    //    t3 = 4*i
+    //    t4 = t2+t3
+    //    M[t5]  =t4
+    //    t6 = i+1
+    //    i = t6+1
+    //    goto Loop
+    ////////////////////
+           |
+           |                            |...To top of loop
+          \|/                           |
+                                        |
+        L_STOP:----------------------------
+
+Optimizations:
+
+Step 1:
+-----------
+ i = 0
+Loop:
+    if i>=n goto L_STOP
+    a = b+c
+    t1= i*4
+    t5 = t1+p
+    t2 = a*a
+               //t3 = 4*i ---> Removed
+    t4 = t2+t1 //t3 unecessary
+    M[t5]  =t4
+    
+    i = i+1 //t6 unnecessary
+    goto Loop
+L_STOP:
+
+
+
+Step 2:
+-----------
+ //i = 0
+ t1 = 0
+ t6 = 4*n
+Loop:
+    if t1>=t6 goto L_STOP
+    a = b+c
+            ///t1 = i*4-->remove
+    t5 = t1+p
+    t2 = a*a               
+    t4 = t2+t1 
+    M[t5]  =t4    
+           //i = i+1 --> Removed
+    t1 = t1+4
+    goto Loop
+L_STOP:
+
+
+Step 3:
+-----------
+
+ t1 = 0
+ t6 = 4*n
+ a = b+c
+ t2 = a*a
+Loop:
+    if t1>=t6 goto L_STOP
+                 // a = b+c    // b ,c is never rewritten so a is invariant, so hoist
+    t5 = t1+p
+                //t2 = a*a     //since a is invariant t2 is invariant       ,so hoist   
+    t4 = t2+t1 
+    M[t5]  =t4   
+    t1 = t1+4
+    goto Loop
+L_STOP:
+
+
+Step 4:
+-----------
+
+ t1 = 0
+ t6 = 4*n
+ a = b+c
+ t2 = a*a
+Loop:
+    if t1>=t6 goto L_STOP                
+    t5 = t1+p                
+    t4 = t2+t1 //Cannot remove t1 since it is used during arithmetic computation and changes at evry iteration
+    M[t5]  =t4   
+    t1 = t1+4
+    goto Loop
+L_STOP:
+
+
+Final CFG:
+
+CFG:
+    ///////
+    //t1 = 0
+    //t6 = 4*n
+    //a = b+c
+    //t2 = a*a
+    ///////
+       |
+       |
+      \|/
+    //////////////////////////  
+    //Loop:
+    //  if t1>=t6 goto L_STOP                
+    //  t5 = t1+p                
+    //  t4 = t2+t1 
+    //  M[t5]  =t4   
+    //  t1 = t1+4
+    //  goto Loop
+    ////////////////////
+           |
+           |                            |...To top of loop
+          \|/                           |
+                                        |
+        L_STOP:----------------------------
+

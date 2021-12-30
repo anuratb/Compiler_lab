@@ -1,0 +1,421 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
+# GNU Make 4.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2014 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Nov 16 09:09:07 2021
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 2
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/anurat/Compiler_lab/Assgn6_compiler_19CS10071_19CS10072
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/share/code/code
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# environment
+USERNAME = anurat
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+CLUTTER_IM_MODULE = xim
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /home/anurat
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/anurat/.local/bin:/home/anurat/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+SESSION_MANAGER = local/anurat-Inspiron-3576:@/tmp/.ICE-unix/1288,unix/anurat-Inspiron-3576:/tmp/.ICE-unix/1288
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+TEXTDOMAIN = im-config
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=b45583b0-fce5-4fa0-a01b-6daf5fadeae2&iid=b45583b0-fce5-4fa0-a01b-6daf5fadeae2&sid=b45583b0-fce5-4fa0-a01b-6daf5fadeae2","uploadToServer":true}
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = 
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 12000
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+GTK_IM_MODULE = ibus
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/anurat/Compiler_lab/Assgn6_compiler_19CS10071_19CS10072
+# environment
+XDG_SEAT = seat0
+# environment
+SSH_AGENT_PID = 1436
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /home/anurat
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+VSCODE_CODE_CACHE_PATH = /home/anurat/.config/Code/CachedData/c3f126316369cd610563c75b1b1725e0679adfb3
+# environment
+LOGNAME = anurat
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+MAKE_VERSION := 4.1
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XDG_VTNR = 1
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = xim
+# environment
+SHLVL = 1
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a3725685-0a3b-42c7-9105-a1b598e8689e.sock
+# environment
+XDG_SESSION_ID = 1
+# environment
+USER = anurat
+# makefile
+.DEFAULT_GOAL := test
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = en_IN:en
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-dc55651b-1.58.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+BREAKPAD_DUMP_LOCATION = /home/anurat/.config/Code/exthost Crash Reports
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+QT_ACCESSIBILITY = 1
+# environment
+TEXTDOMAINDIR = /usr/share/locale/
+# default
+MAKEFILES := 
+# environment
+VSCODE_BROWSER_CODE_LOADING = bypassHeatCheck
+# automatic
+<F = $(notdir $<)
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+LC_ALL = C
+# environment
+QT4_IM_MODULE = xim
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 1
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+VSCODE_PID = 12000
+# variable set hash-table stats:
+# Load=104/1024=10%, Rehash=0, Collisions=15/129=12%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2055, inode 1705591): 53 files, no impossibilities.
+
+# 53 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+tinyC: y.tab.o lex.yy.o assgn6_19CS10071_19CS10072_main.cpp assgn6_19CS10071_19CS10072_translator.o libass2_19CS10071.a ass2_19CS10071.o assgn6_19CS10071_19CS10072_target_translator.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	
+	g++ -o tinyC lex.yy.o y.tab.o assgn6_19CS10071_19CS10072_translator.o assgn6_19CS10071_19CS10072_target_translator.o assgn6_19CS10071_19CS10072_main.cpp  -ll
+	
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+assgn6_19CS10071_19CS10072.l:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ass2_19CS10071.o: ass2_19CS10071.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 63):
+	gcc -c ass2_19CS10071.c
+
+lex.yy.o: lex.yy.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	g++ -c lex.yy.c
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-06 18:37:04.914722331
+#  File has been updated.
+#  Successfully updated.
+
+test: tinyC
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	@echo "\n***********COMPILING THE FILES AND GENERATING ASSEMBLY and QUADS\n"
+	./tinyC assgn6_19CS10071_19CS10072_test1.c >assgn6_19CS10071_19CS10072_quads1.out
+	./tinyC assgn6_19CS10071_19CS10072_test2.c >assgn6_19CS10071_19CS10072_quads2.out
+	./tinyC assgn6_19CS10071_19CS10072_test3.c >assgn6_19CS10071_19CS10072_quads3.out
+	./tinyC assgn6_19CS10071_19CS10072_test4.c >assgn6_19CS10071_19CS10072_quads4.out
+	./tinyC assgn6_19CS10071_19CS10072_test5.c >assgn6_19CS10071_19CS10072_quads5.out
+	./tinyC assgn6_19CS10071_19CS10072_test6.c >assgn6_19CS10071_19CS10072_quads6.out
+	./tinyC assgn6_19CS10071_19CS10072_test7.c >assgn6_19CS10071_19CS10072_quads7.out
+	@echo "\n***********ASSEMBLING THE FILES WITH GCC AND GENERATING EXECUTABLES\n"
+	gcc -o test1 assgn6_19CS10071_19CS10072_test1.c.s -L. -lass2_19CS10071 -no-pie
+ 
+	gcc -o test2 assgn6_19CS10071_19CS10072_test2.c.s -L. -lass2_19CS10071 -no-pie
+	gcc -o test3 assgn6_19CS10071_19CS10072_test3.c.s -L. -lass2_19CS10071 -no-pie
+	gcc -o test4 assgn6_19CS10071_19CS10072_test4.c.s -L. -lass2_19CS10071 -no-pie
+	gcc -o test5 assgn6_19CS10071_19CS10072_test5.c.s -L. -lass2_19CS10071 -no-pie
+	gcc -o test6 assgn6_19CS10071_19CS10072_test6.c.s -L. -lass2_19CS10071 -no-pie
+	gcc -o test7 assgn6_19CS10071_19CS10072_test7.c.s -L. -lass2_19CS10071 -no-pie
+	@echo "Use ./test<i> to run ith test i = 1,...,7 "
+
+assgn6_19CS10071_19CS10072_translator.o: assgn6_19CS10071_19CS10072_translator.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	g++ -c assgn6_19CS10071_19CS10072_translator.cxx
+
+a.out: tinyC
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 66):
+	./tinyC $(arg1)
+	gcc -c $(arg1).s
+	gcc $(arg1).o -L. -lass2_19CS10071 -no-pie
+
+y.tab.o: y.tab.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	g++ -c y.tab.c
+
+# Not a target:
+assgn6_19CS10071_19CS10072_main.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bclean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 55):
+	rm  y.tab.h *.o y.tab.c 
+
+assgn6_19CS10071_19CS10072_target_translator.o: assgn6_19CS10071_19CS10072_translator.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+	g++ -c assgn6_19CS10071_19CS10072_target_translator.cxx
+
+# Not a target:
+ass2_19CS10071.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+lex.yy.c: assgn6_19CS10071_19CS10072.l y.tab.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 44):
+	flex	assgn6_19CS10071_19CS10072.l
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	rm lex.yy.c y.tab.h *.o y.tab.c *.a  *.s
+
+y.tab.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 47):
+	bison -dty assgn6_19CS10071_19CS10072.y 
+
+# Not a target:
+assgn6_19CS10071_19CS10072_translator.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+libass2_19CS10071.a: ass2_19CS10071.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 60):
+	ar -rcs libass2_19CS10071.a ass2_19CS10071.o
+
+y.tab.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 49):
+	bison -dty assgn6_19CS10071_19CS10072.y 
+
+# files hash-table stats:
+# Load=22/1024=2%, Rehash=0, Collisions=0/59=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 62 / storage = 1363 B / avg = 21 B
+# current buf: size = 8162 B / used = 1363 B / count = 62 / avg = 21 B
+
+# strcache performance: lookups = 107 / hit rate = 42%
+# hash-table stats:
+# Load=62/8192=1%, Rehash=0, Collisions=1/107=1%
+# Finished Make data base on Tue Nov 16 09:09:07 2021
+
+ 

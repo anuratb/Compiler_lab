@@ -1,0 +1,77 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: swap :
+1: t0 = *(a)
+2: temp = t0
+3: t1 = *(a)
+4: t2 = *(b)
+5: *(a) = t2
+6: t3 = *(b)
+7: *(b) = temp
+8: main :
+9: t4 = 6
+10: x = t4
+11: t5 = 9
+12: y = t5
+13: t6 = &(x)
+14: param t6
+15: t7 = &(y)
+16: param t7
+17: call swap , 2
+18: t8 = 1
+19: if t8 == 0 goto 24
+20: goto 21
+21: t9 = 5
+22: k = t9
+23: goto 26
+24: t10 = 7
+25: p = t10
+26: if a == 0 goto 31
+27: goto 28
+28: t11 = b
+29: b = b + 1
+30: goto 26
+31: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+swap    | function   |    | 0  |0   | ST1  |
+main    | function   |    | 4  |0   | ST3  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+a    | ptr(int)   |    | 4  |0   | null   |
+b    | ptr(int)   |    | 4  |4   | null   |
+temp    | int   |    | 4  |8   | null   |
+t0    | int   |    | 4  |12   | null   |
+t1    | int   |    | 4  |16   | null   |
+t2    | int   |    | 4  |20   | null   |
+t3    | int   |    | 4  |24   | null   |
+
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   | 6   | 4  |0   | null   |
+t4    | int   | 6   | 4  |4   | null   |
+y    | int   | 9   | 4  |8   | null   |
+t5    | int   | 9   | 4  |12   | null   |
+t6    | ptr   |    | 4  |16   | null   |
+t7    | ptr   |    | 4  |20   | null   |
+t8    | int   | 1   | 4  |24   | null   |
+a    | int   |    | 4  |28   | null   |
+b    | int   |    | 4  |32   | null   |
+k    | int   | 5   | 4  |36   | null   |
+t9    | int   | 5   | 4  |40   | null   |
+p    | int   | 7   | 4  |44   | null   |
+t10    | int   | 7   | 4  |48   | null   |
+t11    | int   |    | 4  |52   | null   |

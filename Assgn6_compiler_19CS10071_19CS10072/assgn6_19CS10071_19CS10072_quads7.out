@@ -1,0 +1,99 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: main :
+4: t0 = "Program to print nXn cros pattern tsts nested loops if else and library functions\n"
+5: param t0
+6: t1 = call printStr , 1
+7: t2 = "Enter n: "
+8: param t2
+9: t3 = call printStr , 1
+10: t4 = &(n)
+11: param t4
+12: t5 = call readInt , 1
+13: t6 = "Cross pattern of dimension,"
+14: param t6
+15: t7 = call printStr , 1
+16: param n
+17: t8 = call printInt , 1
+18: t9 = " X "
+19: param t9
+20: t10 = call printStr , 1
+21: param n
+22: t11 = call printInt , 1
+23: t12 = " is:\n"
+24: param t12
+25: t13 = call printStr , 1
+26: t14 = 0
+27: i = t14
+28: if i < n goto 33
+29: goto 59
+30: t15 = i
+31: i = i + 1
+32: goto 28
+33: t16 = 0
+34: j = t16
+35: if j < n goto 40
+36: goto 55
+37: t17 = j
+38: j = j + 1
+39: goto 35
+40: if i == j goto 47
+41: goto 42
+42: t18 = i + j
+43: t19 = 1
+44: t20 = n - t19
+45: if t18 == t20 goto 47
+46: goto 51
+47: t21 = "X "
+48: param t21
+49: t22 = call printStr , 1
+50: goto 37
+51: t23 = ". "
+52: param t23
+53: t24 = call printStr , 1
+54: goto 37
+55: t25 = "\n"
+56: param t25
+57: t26 = call printStr , 1
+58: goto 30
+59: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+main    | function   |    | 0  |0   | ST4  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+n    | int   |    | 4  |0   | null   |t0    | ptr(char)   | "Program to print nXn cros pattern tsts nested loops if else and library functions\n"   | 8  |4   | null   |t1    | int   |    | 4  |12   | null   |t2    | ptr(char)   | "Enter n: "   | 8  |16   | null   |t3    | int   |    | 4  |24   | null   |t4    | ptr(int)   |    | 8  |28   | null   |t5    | int   |    | 4  |36   | null   |t6    | ptr(char)   | "Cross pattern of dimension,"   | 8  |40   | null   |t7    | int   |    | 4  |48   | null   |t8    | int   |    | 4  |52   | null   |t9    | ptr(char)   | " X "   | 8  |56   | null   |t10    | int   |    | 4  |64   | null   |t11    | int   |    | 4  |68   | null   |t12    | ptr(char)   | " is:\n"   | 8  |72   | null   |t13    | int   |    | 4  |80   | null   |i    | int   |    | 4  |84   | null   |j    | int   |    | 4  |88   | null   |t14    | int   | 0   | 4  |92   | null   |t15    | int   |    | 4  |96   | null   |t25    | ptr(char)   | "\n"   | 8  |100   | null   |t26    | int   |    | 4  |108   | null   |t16    | int   | 0   | 4  |112   | null   |t17    | int   |    | 4  |116   | null   |t18    | int   |    | 4  |120   | null   |t19    | int   | 1   | 4  |124   | null   |t20    | int   |    | 4  |128   | null   |t21    | ptr(char)   | "X "   | 8  |132   | null   |t22    | int   |    | 4  |140   | null   |t23    | ptr(char)   | ". "   | 8  |144   | null   |t24    | int   |    | 4  |152   | null   |

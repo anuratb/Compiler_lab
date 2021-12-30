@@ -1,0 +1,62 @@
+​​​​​​​​
+
+-----------Printting the 3 Address Code-----------
+0: main :
+1: t0 = 2
+2: x = t0
+3: t1 = 7
+4: y = t1
+5: t2 = 0
+6: i = t2
+7: t3 = 6
+8: if i < t3 goto 13
+9: goto 17
+10: t4 = i
+11: i = i + 1
+12: goto 7
+13: t5 = 12
+14: t6 = x * t5
+15: x = t6
+16: goto 10
+17: t7 = 0
+18: if y > t7 goto 20
+19: goto 25
+20: t8 = y
+21: y = y - 1
+22: t9 = x
+23: x = x + 1
+24: goto 17
+25: t10 = x + y
+26: z = t10
+27: if x < y goto 25
+28: goto 29
+29: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+main    | function   |    | 4  |0   | ST1  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   | 2   | 4  |0   | null   |
+t0    | int   | 2   | 4  |4   | null   |
+y    | int   |    | 4  |8   | null   |
+t1    | int   | 7   | 4  |12   | null   |
+i    | int   | 0   | 4  |16   | null   |
+t2    | int   | 0   | 4  |20   | null   |
+t3    | int   | 6   | 4  |24   | null   |
+t4    | int   |    | 4  |28   | null   |
+t5    | int   | 12   | 4  |32   | null   |
+t6    | int   |    | 4  |36   | null   |
+t7    | int   | 0   | 4  |40   | null   |
+t8    | int   |    | 4  |44   | null   |
+t9    | int   |    | 4  |48   | null   |
+z    | int   |    | 4  |52   | null   |
+t10    | int   |    | 4  |56   | null   |

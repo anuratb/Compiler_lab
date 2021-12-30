@@ -1,0 +1,148 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: swap :
+4: t0 = *(a)
+5: temp = t0
+6: t1 = *(a)
+7: t2 = *(b)
+8: *(a) = t2
+9: t3 = *(b)
+10: *(b) = temp
+11: main :
+12: t4 = "******Program to implement bubble sort running 2 nested loops*******\n"
+13: param t4
+14: t5 = call printStr , 1
+15: t6 = 5
+16: t7 = "Enter 5 integers pressing enter: "
+17: param t7
+18: t8 = call printStr , 1
+19: t9 = 0
+20: i = t9
+21: t10 = 5
+22: if i < t10 goto 27
+23: goto 34
+24: t11 = i
+25: i = i + 1
+26: goto 21
+27: t12 = 0
+28: t13 = arr + t12
+29: t14 = i * 4
+30: t15 = t13 + t14
+31: param t15
+32: t16 = call readInt , 1
+33: goto 24
+34: t17 = 0
+35: i = t17
+36: t18 = 5
+37: if i < t18 goto 42
+38: goto 78
+39: t19 = i
+40: i = i + 1
+41: goto 36
+42: t20 = 0
+43: j = t20
+44: t21 = 1
+45: t22 = j + t21
+46: t23 = 5
+47: if t22 < t23 goto 52
+48: goto 39
+49: t24 = j
+50: j = j + 1
+51: goto 44
+52: t25 = 0
+53: t26 = j * 4
+54: t27 = arr[t26]
+55: t28 = 0
+56: t29 = 1
+57: t30 = j + t29
+58: t31 = t30 * 4
+59: t32 = arr[t31]
+60: if t27 > t32 goto 62
+61: goto 49
+62: t33 = 0
+63: t34 = arr + t33
+64: t35 = j * 4
+65: t36 = t34 + t35
+66: param t36
+67: t37 = 0
+68: t38 = arr + t37
+69: t39 = j * 4
+70: t40 = t38 + t39
+71: t41 = 1
+72: t42 = t41 * 4
+73: t43 = t40 + t42
+74: param t43
+75: call swap , 2
+76: goto 49
+77: goto 39
+78: t44 = "Sorted array is: "
+79: param t44
+80: t45 = call printStr , 1
+81: t46 = 0
+82: i = t46
+83: t47 = 5
+84: if i < t47 goto 89
+85: goto 98
+86: t48 = i
+87: i = i + 1
+88: goto 83
+89: t49 = 0
+90: t50 = i * 4
+91: t51 = arr[t50]
+92: param t51
+93: t52 = call printInt , 1
+94: t53 = " "
+95: param t53
+96: t54 = call printStr , 1
+97: goto 86
+98: t55 = "\n"
+99: param t55
+100: t56 = call printStr , 1
+101: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+swap    | function   |    | 0  |0   | ST4  |
+main    | function   |    | 0  |0   | ST6  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+a    | ptr(int)   |    | 8  |0   | null   |b    | ptr(int)   |    | 8  |8   | null   |temp    | int   |    | 4  |16   | null   |t0    | int   |    | 4  |20   | null   |t1    | int   |    | 4  |24   | null   |t2    | int   |    | 4  |28   | null   |t3    | int   |    | 4  |32   | null   |
+--------Printing symbol Table---------
+Current Table: ST6
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+t4    | ptr(char)   | "******Program to implement bubble sort running 2 nested loops*******\n"   | 8  |0   | null   |t5    | int   |    | 4  |8   | null   |arr    | array(5,int)   |    | 20  |12   | null   |t6    | int   | 5   | 4  |32   | null   |t7    | ptr(char)   | "Enter 5 integers pressing enter: "   | 8  |36   | null   |t8    | int   |    | 4  |44   | null   |i    | int   | 0   | 4  |48   | null   |j    | int   |    | 4  |52   | null   |t44    | ptr(char)   | "Sorted array is: "   | 8  |56   | null   |t45    | int   |    | 4  |64   | null   |t55    | ptr(char)   | "\n"   | 8  |68   | null   |t56    | int   |    | 4  |76   | null   |i    | int   | 0   | 4  |80   | null   |t9    | int   | 0   | 4  |84   | null   |t10    | int   | 5   | 4  |88   | null   |t11    | int   |    | 4  |92   | null   |t12    | int   | 0   | 4  |96   | null   |t13    | ptr(int)   |    | 8  |100   | null   |t14    | int   |    | 4  |108   | null   |t15    | ptr(int)   |    | 8  |112   | null   |t16    | int   |    | 4  |120   | null   |t17    | int   | 0   | 4  |124   | null   |t18    | int   | 5   | 4  |128   | null   |t19    | int   |    | 4  |132   | null   |t20    | int   | 0   | 4  |136   | null   |t21    | int   | 1   | 4  |140   | null   |t22    | int   |    | 4  |144   | null   |t23    | int   | 5   | 4  |148   | null   |t24    | int   |    | 4  |152   | null   |t25    | int   | 0   | 4  |156   | null   |t26    | int   |    | 4  |160   | null   |t27    | int   |    | 4  |164   | null   |t28    | int   | 0   | 4  |168   | null   |t29    | int   | 1   | 4  |172   | null   |t30    | int   |    | 4  |176   | null   |t31    | int   |    | 4  |180   | null   |t32    | int   |    | 4  |184   | null   |t33    | int   | 0   | 4  |188   | null   |t34    | ptr(int)   |    | 8  |192   | null   |t35    | int   |    | 4  |200   | null   |t36    | ptr(int)   |    | 8  |204   | null   |t37    | int   | 0   | 4  |212   | null   |t38    | ptr(int)   |    | 8  |216   | null   |t39    | int   |    | 4  |224   | null   |t40    | ptr(int)   |    | 8  |228   | null   |t41    | int   | 1   | 4  |236   | null   |t42    | int   |    | 4  |240   | null   |t43    | ptr(int)   |    | 8  |244   | null   |t46    | int   | 0   | 4  |252   | null   |t47    | int   | 5   | 4  |256   | null   |t48    | int   |    | 4  |260   | null   |t49    | int   | 0   | 4  |264   | null   |t50    | int   |    | 4  |268   | null   |t51    | int   |    | 4  |272   | null   |t52    | int   |    | 4  |276   | null   |t53    | ptr(char)   | " "   | 8  |280   | null   |t54    | int   |    | 4  |288   | null   |

@@ -1,0 +1,123 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: abs :
+4: t0 = 0
+5: if x < t0 goto 7
+6: goto 9
+7: t1 = -x
+8: x = t1
+9: return x
+10: main :
+11: t2 = 0
+12: y1 = t2
+13: x1 = t2
+14: t3 = 2
+15: x2 = t3
+16: t4 = 0
+17: y2 = t4
+18: t5 = 0
+19: x3 = t5
+20: t6 = 2
+21: y3 = t6
+22: t7 = "******Program to print area of triangle from coordinates tests arithmetic expressions*******\n"
+23: param t7
+24: t8 = call printStr , 1
+25: t9 = y2 - y3
+26: t10 = x1 * t9
+27: t11 = y3 - y1
+28: t12 = x2 * t11
+29: t13 = t10 + t12
+30: t14 = y1 - y2
+31: t15 = x3 * t14
+32: t16 = t13 + t15
+33: param t16
+34: t17 = call abs , 1
+35: t18 = 2
+36: t19 = t17 / t18
+37: area = t19
+38: t20 = "Area of the triangle with coordinates("
+39: param t20
+40: t21 = call printStr , 1
+41: param x1
+42: t22 = call printInt , 1
+43: t23 = ","
+44: param t23
+45: t24 = call printStr , 1
+46: param y1
+47: t25 = call printInt , 1
+48: t26 = ") ,("
+49: param t26
+50: t27 = call printStr , 1
+51: param x2
+52: t28 = call printInt , 1
+53: t29 = ","
+54: param t29
+55: t30 = call printStr , 1
+56: param y2
+57: t31 = call printInt , 1
+58: t32 = ") ,("
+59: param t32
+60: t33 = call printStr , 1
+61: param x3
+62: t34 = call printInt , 1
+63: t35 = ","
+64: param t35
+65: t36 = call printStr , 1
+66: param y3
+67: t37 = call printInt , 1
+68: t38 = ") is : "
+69: param t38
+70: t39 = call printStr , 1
+71: param area
+72: t40 = call printInt , 1
+73: t41 = "\n"
+74: param t41
+75: t42 = call printStr , 1
+76: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+abs    | function   |    | 0  |0   | ST4  |
+main    | function   |    | 0  |0   | ST8  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   |    | 4  |0   | null   |t0    | int   | 0   | 4  |4   | null   |t1    | int   |    | 4  |8   | null   |
+--------Printing symbol Table---------
+Current Table: ST8
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x1    | int   |    | 4  |0   | null   |y1    | int   |    | 4  |4   | null   |x2    | int   |    | 4  |8   | null   |y2    | int   |    | 4  |12   | null   |x3    | int   |    | 4  |16   | null   |y3    | int   |    | 4  |20   | null   |t2    | int   | 0   | 4  |24   | null   |t3    | int   | 2   | 4  |28   | null   |t4    | int   | 0   | 4  |32   | null   |t5    | int   | 0   | 4  |36   | null   |t6    | int   | 2   | 4  |40   | null   |t7    | ptr(char)   | "******Program to print area of triangle from coordinates tests arithmetic expressions*******\n"   | 8  |44   | null   |t8    | int   |    | 4  |52   | null   |area    | int   |    | 4  |56   | null   |t9    | int   |    | 4  |60   | null   |t10    | int   |    | 4  |64   | null   |t11    | int   |    | 4  |68   | null   |t12    | int   |    | 4  |72   | null   |t13    | int   |    | 4  |76   | null   |t14    | int   |    | 4  |80   | null   |t15    | int   |    | 4  |84   | null   |t16    | int   |    | 4  |88   | null   |t17    | int   |    | 4  |92   | null   |t18    | int   | 2   | 4  |96   | null   |t19    | int   |    | 4  |100   | null   |t20    | ptr(char)   | "Area of the triangle with coordinates("   | 8  |104   | null   |t21    | int   |    | 4  |112   | null   |t22    | int   |    | 4  |116   | null   |t23    | ptr(char)   | ","   | 8  |120   | null   |t24    | int   |    | 4  |128   | null   |t25    | int   |    | 4  |132   | null   |t26    | ptr(char)   | ") ,("   | 8  |136   | null   |t27    | int   |    | 4  |144   | null   |t28    | int   |    | 4  |148   | null   |t29    | ptr(char)   | ","   | 8  |152   | null   |t30    | int   |    | 4  |160   | null   |t31    | int   |    | 4  |164   | null   |t32    | ptr(char)   | ") ,("   | 8  |168   | null   |t33    | int   |    | 4  |176   | null   |t34    | int   |    | 4  |180   | null   |t35    | ptr(char)   | ","   | 8  |184   | null   |t36    | int   |    | 4  |192   | null   |t37    | int   |    | 4  |196   | null   |t38    | ptr(char)   | ") is : "   | 8  |200   | null   |t39    | int   |    | 4  |208   | null   |t40    | int   |    | 4  |212   | null   |t41    | ptr(char)   | "\n"   | 8  |216   | null   |t42    | int   |    | 4  |224   | null   |

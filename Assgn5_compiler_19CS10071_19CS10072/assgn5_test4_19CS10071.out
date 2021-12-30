@@ -1,0 +1,96 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: main :
+1: t0 = 0
+2: x = t0
+3: t1 = 0
+4: i = t1
+5: t2 = 6
+6: if i < t2 goto 11
+7: goto 32
+8: t3 = i
+9: i = i + 1
+10: goto 5
+11: t4 = 0
+12: j = t4
+13: t5 = 7
+14: if j < t5 goto 19
+15: goto 8
+16: t6 = j
+17: j = j + 1
+18: goto 13
+19: t7 = 0
+20: k = t7
+21: t8 = 8
+22: if k < t8 goto 27
+23: goto 16
+24: t9 = k
+25: k = k + 1
+26: goto 21
+27: t10 = x
+28: x = x + 1
+29: goto 24
+30: goto 16
+31: goto 8
+32: t11 = 3
+33: t12 = 8
+34: t13 = 9
+35: t14 = t12 / t13
+36: t15 = 4
+37: t16 = t14 * t15
+38: t17 = t11 + t16
+39: t18 = 8
+40: t19 = 3
+41: t20 = t18 << t19
+42: t21 = 5
+43: t22 = t20 + t21
+44: t23 = 96
+45: t24 = t22 - t23
+46: t25 = t17 + t24
+47: x = t25
+48: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+main    | function   |    | 4  |0   | ST1  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   | 0   | 4  |0   | null   |
+t0    | int   | 0   | 4  |4   | null   |
+t11    | int   | 3   | 4  |8   | null   |
+t12    | int   | 8   | 4  |12   | null   |
+t13    | int   | 9   | 4  |16   | null   |
+t14    | int   |    | 4  |20   | null   |
+t15    | int   | 4   | 4  |24   | null   |
+t16    | int   |    | 4  |28   | null   |
+t17    | int   |    | 4  |32   | null   |
+t18    | int   | 8   | 4  |36   | null   |
+t19    | int   | 3   | 4  |40   | null   |
+t20    | int   |    | 4  |44   | null   |
+t21    | int   | 5   | 4  |48   | null   |
+t22    | int   |    | 4  |52   | null   |
+t23    | int   | 96   | 4  |56   | null   |
+t24    | int   |    | 4  |60   | null   |
+t25    | int   |    | 4  |64   | null   |
+i    | int   | 0   | 4  |68   | null   |
+t1    | int   | 0   | 4  |72   | null   |
+t2    | int   | 6   | 4  |76   | null   |
+t3    | int   |    | 4  |80   | null   |
+j    | int   | 0   | 4  |84   | null   |
+t4    | int   | 0   | 4  |88   | null   |
+t5    | int   | 7   | 4  |92   | null   |
+t6    | int   |    | 4  |96   | null   |
+k    | int   | 0   | 4  |100   | null   |
+t7    | int   | 0   | 4  |104   | null   |
+t8    | int   | 8   | 4  |108   | null   |
+t9    | int   |    | 4  |112   | null   |
+t10    | int   |    | 4  |116   | null   |

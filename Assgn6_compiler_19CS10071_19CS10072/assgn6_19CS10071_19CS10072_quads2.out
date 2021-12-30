@@ -1,0 +1,92 @@
+
+
+-----------Printting the 3 Address Code-----------
+0: printInt :
+1: readInt :
+2: printStr :
+3: gcd :
+4: t0 = 0
+5: if y == t0 goto 7
+6: goto 8
+7: return x
+8: t1 = x % y
+9: v = t1
+10: t2 = 0
+11: if v == t2 goto 13
+12: goto 14
+13: return y
+14: param y
+15: param v
+16: t3 = call gcd , 2
+17: return t3
+18: main :
+19: t4 = "******Program to print gcd of 2 numbers(recursive function)*******\n"
+20: param t4
+21: t5 = call printStr , 1
+22: t6 = "Enter x: "
+23: param t6
+24: t7 = call printStr , 1
+25: t8 = &(x)
+26: param t8
+27: t9 = call readInt , 1
+28: t10 = "Enter y: "
+29: param t10
+30: t11 = call printStr , 1
+31: t12 = &(y)
+32: param t12
+33: t13 = call readInt , 1
+34: t14 = "Gcd of x and y is: "
+35: param t14
+36: t15 = call printStr , 1
+37: param x
+38: param y
+39: t16 = call gcd , 2
+40: param t16
+41: t17 = call printInt , 1
+42: t18 = "\n"
+43: param t18
+44: t19 = call printStr , 1
+45: 
+-----------Printing the symbol tables------------
+
+--------Printing symbol Table---------
+Current Table: ST0
+Parent Table Name: null
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+printInt    | function   |    | 0  |0   | ST1  |
+readInt    | function   |    | 0  |0   | ST2  |
+printStr    | function   |    | 0  |0   | ST3  |
+gcd    | function   |    | 0  |0   | ST4  |
+main    | function   |    | 0  |0   | ST10  |
+
+--------Printing symbol Table---------
+Current Table: ST1
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+p__    | int   |    | 4  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST2
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+q__    | ptr(int)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST3
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+ch    | ptr(char)   |    | 8  |0   | null   |
+--------Printing symbol Table---------
+Current Table: ST4
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+x    | int   |    | 4  |0   | null   |y    | int   |    | 4  |4   | null   |v    | int   |    | 4  |8   | null   |t1    | int   |    | 4  |12   | null   |t3    | int   |    | 4  |16   | null   |t0    | int   | 0   | 4  |20   | null   |t2    | int   | 0   | 4  |24   | null   |
+--------Printing symbol Table---------
+Current Table: ST10
+Parent Table Name: ST0
+Name      |Type    |Initial Value | Size  | Offset | Nested Table|
+-------------------------------------------------------------------
+t4    | ptr(char)   | "******Program to print gcd of 2 numbers(recursive function)*******\n"   | 8  |0   | null   |t5    | int   |    | 4  |8   | null   |x    | int   |    | 4  |12   | null   |y    | int   |    | 4  |16   | null   |t6    | ptr(char)   | "Enter x: "   | 8  |20   | null   |t7    | int   |    | 4  |28   | null   |t8    | ptr(int)   |    | 8  |32   | null   |t9    | int   |    | 4  |40   | null   |t10    | ptr(char)   | "Enter y: "   | 8  |44   | null   |t11    | int   |    | 4  |52   | null   |t12    | ptr(int)   |    | 8  |56   | null   |t13    | int   |    | 4  |64   | null   |t14    | ptr(char)   | "Gcd of x and y is: "   | 8  |68   | null   |t15    | int   |    | 4  |76   | null   |t16    | int   |    | 4  |80   | null   |t17    | int   |    | 4  |84   | null   |t18    | ptr(char)   | "\n"   | 8  |88   | null   |t19    | int   |    | 4  |96   | null   |
